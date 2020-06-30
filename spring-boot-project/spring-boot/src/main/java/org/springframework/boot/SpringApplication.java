@@ -273,7 +273,7 @@ public class SpringApplication {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public SpringApplication(ResourceLoader resourceLoader, Class<?>... primarySources) {
-		// 【1】给resourceLoader属性赋值，注意传入的resourceLoader参数为null
+		// 【1】给resourceLoader属性赋值，注意传入的resourceLoader参数为null（这里将使用当前线程所在的ClassLoader-ApplicationClassLoader）
 		this.resourceLoader = resourceLoader;
 		Assert.notNull(primarySources, "PrimarySources must not be null");
 		// 【2】给primarySources属性赋值，传入的primarySources其实就是SpringApplication.run(MainApplication.class, args);中的MainApplication.class
